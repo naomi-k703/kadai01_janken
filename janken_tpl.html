@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="css/sample.css">
+    <title>じゃんけん</title>
+</head>
+
+<body>
+
+    <header>
+        <h1>じゃんけん</h1>
+    </header>
+
+    <main>
+        <ul>
+            <li id="gu_btn">グー</li>
+            <li id="cho_btn">チョキ</li>
+            <li id="par_btn">パー</li>
+        </ul>
+        <div>コンピュータの出した手は？「<span id="pc_hands">なに？</span>」</div>
+        <div id="judgment">ジャンケン</div>
+    </main>
+
+    <footer></footer>
+
+
+    <script>
+
+　　$("#gu_btn").on("click",function(){
+    //グー
+    //1.乱数(1-3)
+    // console.log('ok')
+   //パソコンの手（何の処理？をしたら良いかを考えてみる：裏側：頭で考えている状態、）
+
+    const r = Math.ceil(Math.random()*3);
+       console.log(r)
+
+    //2.if分岐処理(条件分岐)　　順次進行→条件分岐→反復
+    let view = "";
+    let pc_hands ="";
+    if(r==1){
+    view = 'あなたの勝ち';
+    pc_hands = '<img src="img/チョキ.png" width="100px">'
+
+    }
+    if(r==2){
+        view = '残念！負け！';
+        pc_hands = '<img src="img/グー.png" width="100px">'
+        // '<img src="daikichi.jpg" width"300">';
+    }
+    if(r==3){
+　　 view = 'あいこ！もう一回！';
+    pc_hands = '<img src="img/パー.png" width="100px">'
+    }
+    
+    //3.表示処理（出力）
+    $("#judgment").html(view);
+    $("#pc_hands").html(pc_hands);
+
+    });
+
+    //     チョキ
+
+    //1.乱数(1-3)
+    $("#cho_btn").on("click",function(){
+    const r = Math.ceil(Math.random()*3);
+
+    //2.if分岐処理
+    let view = "";
+    let pc_hands ="";
+    if(r==1){
+　　 view = 'あなたの勝ち';
+    pc_hands = '<img src="img/グー.png" width="100px">'
+    }
+    if(r==2){
+    view = '残念！負け！';
+    pc_hands = '<img src="img/パー.png" width="100px">'
+    }
+    if(r==3){
+    view = 'あいこ！もう一回！';
+    pc_hands = '<img src="img/チョキ.png" width="100px">'
+    }
+    //3.表示処理
+    $("#judgment").html(view);
+    $("#pc_hands").html(pc_hands);
+    });
+
+    //パー
+    //1.乱数(1-3)
+    $("#par_btn").on("click",function(){
+    const r = Math.ceil(Math.random()*3);
+
+    //2.if分岐処理
+    let view = "";
+    let pc_hands ="";
+    if(r==1){
+    view = 'あなたの勝ち';
+    pc_hands = '<img src="img/チョキ.png" width="100px">'
+    }
+    if(r==2){
+    view = '残念！負け！';
+    pc_hands = '<img src="img/グー.png" width="100px">'
+    }
+    if(r==3){
+    view = 'あいこ！もう一回！';
+    pc_hands = '<img src="img/パー.png" width="100px">'
+    }
+    
+    //3.表示処理
+    $("#judgment").html(view);
+    $("#pc_hands").html(pc_hands);
+
+    });
+
+
+    </script>
+</body>
+
+</html>
